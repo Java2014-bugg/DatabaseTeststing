@@ -199,7 +199,7 @@ public class DataIntegrityTest {
         }
     }
     
-    @Test()
+    @Test(priority = 6)
     public void testDeleteCascadingBehavior() throws SQLException {
     	queryMovies(connection);
     	
@@ -242,7 +242,7 @@ public class DataIntegrityTest {
         }
     }
     
-    @Test(priority = 8)
+    @Test(priority = 7)
     public void testDefaultValues() throws SQLException {
     	queryMovies(connection);
     	
