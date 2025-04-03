@@ -121,6 +121,18 @@ public class DataIntegrityTest {
         }
     }
     
+    @Test(priority = 3)
+    public void testEmptyInsert2() throws SQLException {
+        // Trying to insert a record with missing non-nullable fields
+        String invalidInsertSQL = "INSERT INTO movies (year, genre) VALUES ('2023', 'Drama');"; // Title has no value
+        try (Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate(invalidInsertSQL);
+            fail("Insert without a title should fail due to NOT NULL constraint.");
+        } catch (SQLException e) {
+            assertTrue(e.getMessage().contains("NOT NULL"), "Expected NOT NULL constraint violation. Jan2");
+        }
+    }
+    
     @Test(enabled = false)
     public void testNullInsert() throws SQLException {
         // Trying to insert a record with NULL fields
