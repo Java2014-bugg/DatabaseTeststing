@@ -3,9 +3,12 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "master" ]
+    paths:
+      - src/main/resources/App1.html
   pull_request:
     branches: [ "master" ]
-
+    paths:
+      - src/main/resources/App1.html
 jobs:
   build:
 
