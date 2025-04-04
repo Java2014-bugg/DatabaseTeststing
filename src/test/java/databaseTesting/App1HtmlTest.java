@@ -15,8 +15,17 @@ public class App1HtmlTest {
 
     @BeforeClass
     public void setUp() {
-        // Set path to ChromeDriver (replace with your actual path) 	
-    	System.setProperty("webdriver.chrome.driver","C:\\Users\\Drivers\\chromedriver.exe");
+        // Set path to ChromeDriver (replace with your actual path) 
+    	String os = System.getProperty("os.name").toLowerCase();
+    	if (os.contains("win")) {
+    	    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Drivers\\chromedriver.exe");
+    	} else {
+    	    // On Linux (like GitHub Actions), chromedriver is in PATH after install
+    	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    	}
+
+    	
+    	
 
         // Initialize WebDriver
         driver = new ChromeDriver();
