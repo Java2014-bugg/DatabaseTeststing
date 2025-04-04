@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,9 +25,13 @@ public class App1HtmlTest {
     	    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
     	}
 
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--headless=new"); // new headless mode
+    	options.addArguments("--no-sandbox");
+    	options.addArguments("--disable-dev-shm-usage");
+    	options.addArguments("--disable-gpu");
+    	options.addArguments("--remote-allow-origins=*"); // sometimes helps with CI
     	
-    	
-
         // Initialize WebDriver
         driver = new ChromeDriver();
 
