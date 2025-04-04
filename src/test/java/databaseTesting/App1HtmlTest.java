@@ -15,7 +15,7 @@ public class App1HtmlTest {
 
     @BeforeClass
     public void setUp() {
-        // Set path to ChromeDriver (replace with your actual path)
+        // Set path to ChromeDriver (replace with your actual path) 	
     	System.setProperty("webdriver.chrome.driver","C:\\Users\\Drivers\\chromedriver.exe");
 
         // Initialize WebDriver
