@@ -22,23 +22,33 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-
-    # Install Chrome and ChromeDriver
-    - name: Install Chrome and ChromeDriver
+        
+    - name: Install Chrome and matching ChromeDriver
       run: |
         sudo apt-get update
-        sudo apt-get install -y wget unzip
+        sudo apt-get install -y wget unzip curl
+
+        # Download Chrome .deb
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
-        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+
+        # Install Chrome, fix broken dependencies if any
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -fy install
+
+        # Get installed Chrome version (major only, like 123)
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+' | head -1)
+
+        # Get matching ChromeDriver version
         CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+
+         # Download and set up ChromeDriver
         wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
-        #sudo apt-get install -y google-chrome-stable
-        #sudo apt-get install -y chromium-chromedriver
-        echo "ChromeDriver installed"
+
+        # Verify installation
+        google-chrome --version
+        chromedriver --version
 
     - name: Verify Chrome and ChromeDriver
       run: |
