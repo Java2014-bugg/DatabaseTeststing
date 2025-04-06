@@ -1,7 +1,12 @@
 package databaseTesting;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +17,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class App1HtmlTest {
 
@@ -47,6 +56,8 @@ public class App1HtmlTest {
 
         // Open the HTML file in the browser
         driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
+        
+        waitForPageToLoad();
     }
     
     @AfterClass
@@ -59,19 +70,25 @@ public class App1HtmlTest {
 
     @Test(priority = 1)
     public void testAddTask() {
-        // Locate the input box and add button
-        WebElement taskInput = driver.findElement(By.id("taskInput"));
-        WebElement addButton = driver.findElement(By.xpath("//button[text()='Add Task']"));
+    	try {
+    		// Locate the input box and add button
+    		WebElement taskInput = driver.findElement(By.id("taskInput"));
+    		WebElement addButton = driver.findElement(By.xpath("//button[text()='Add Task']"));
 
-        // Add a new task
-        String taskName = "Test Task 1";
-        taskInput.sendKeys(taskName);
-        addButton.click();
+    		// Add a new task
+    		String taskName = "Test Task 1";
+    		taskInput.sendKeys(taskName);
+    		addButton.click();
 
-        // Verify that the task is added to the list
-        WebElement taskList = driver.findElement(By.id("taskList"));
-        WebElement addedTask = taskList.findElement(By.xpath("//li[contains(text(), '" + taskName + "')]"));
-        Assert.assertNotNull(addedTask, "Task was not added!");
+    		// Verify that the task is added to the list
+    		WebElement taskList = driver.findElement(By.id("taskList"));
+    		WebElement addedTask = taskList.findElement(By.xpath("//li[contains(text(), '" + taskName + "')]"));
+    		Assert.assertNotNull(addedTask, "Task was not added!");
+    		
+    	} catch (Exception e) {
+            takeScreenshot("add_task_failed.png");
+            throw e;  // re-throw so test still fails
+        }	
     }
 
     @Test(priority = 2, dependsOnMethods = "testAddTask")
@@ -87,5 +104,23 @@ public class App1HtmlTest {
         // Verify that the task is removed from the list
         boolean isTaskPresent = taskList.findElements(By.xpath("//li[contains(text(), 'Test Task 1')]")).isEmpty();
         Assert.assertTrue(isTaskPresent, "Task was not deleted!");
+    }
+    
+    public void waitForPageToLoad() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+            webDriver -> ((JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState").equals("complete"));
+    }
+    
+    public void takeScreenshot(String filename) {
+        if (driver instanceof TakesScreenshot) {
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                Files.createDirectories(Paths.get("target/screenshots"));
+                Files.copy(screenshot.toPath(), Paths.get("target/screenshots", filename));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
