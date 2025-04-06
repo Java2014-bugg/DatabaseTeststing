@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-04T18:14:46 CEST" name="Default suite" finished-at="2025-04-04T18:14:47 CEST" duration-ms="1096">
+  <suite started-at="2025-04-06T20:10:44 CEST" name="Default suite" finished-at="2025-04-06T20:10:45 CEST" duration-ms="1178">
     <groups>
     </groups>
-    <test started-at="2025-04-04T18:14:46 CEST" name="Default test" finished-at="2025-04-04T18:14:47 CEST" duration-ms="1096">
+    <test started-at="2025-04-06T20:10:44 CEST" name="Default test" finished-at="2025-04-06T20:10:45 CEST" duration-ms="1178">
       <class name="databaseTesting.App1HtmlTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-04T18:14:46 CEST" name="setUp" finished-at="2025-04-04T18:14:47 CEST" duration-ms="807" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-06T20:10:44 CEST" name="setUp" finished-at="2025-04-06T20:10:44 CEST" duration-ms="888" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testAddTask()[pri:1, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-04T18:14:47 CEST" name="testAddTask" finished-at="2025-04-04T18:14:47 CEST" duration-ms="119" status="PASS">
+        <test-method signature="testAddTask()[pri:1, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-06T20:10:44 CEST" name="testAddTask" finished-at="2025-04-06T20:10:45 CEST" duration-ms="89" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddTask -->
-        <test-method signature="testDeleteTask()[pri:2, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-04T18:14:47 CEST" name="testDeleteTask" finished-at="2025-04-04T18:14:47 CEST" depends-on-methods="databaseTesting.App1HtmlTest.testAddTask" duration-ms="53" status="PASS">
+        <test-method signature="testDeleteTask()[pri:2, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-06T20:10:45 CEST" name="testDeleteTask" finished-at="2025-04-06T20:10:45 CEST" depends-on-methods="databaseTesting.App1HtmlTest.testAddTask" duration-ms="71" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDeleteTask -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-04T18:14:47 CEST" name="tearDown" finished-at="2025-04-04T18:14:47 CEST" duration-ms="92" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:databaseTesting.App1HtmlTest@7d20d0b]" started-at="2025-04-06T20:10:45 CEST" name="tearDown" finished-at="2025-04-06T20:10:45 CEST" duration-ms="99" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

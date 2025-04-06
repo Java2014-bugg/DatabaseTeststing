@@ -43,7 +43,7 @@ public class App1HtmlTest {
     	}
     	
         // Initialize WebDriver
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
 
         // Open the HTML file in the browser
         driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
