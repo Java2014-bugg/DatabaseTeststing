@@ -1,5 +1,8 @@
 package databaseTesting;
 
+import java.io.IOException;
+import java.nio.file.Files;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,6 +34,13 @@ public class App1HtmlTest {
     	options.addArguments("--disable-dev-shm-usage");
     	options.addArguments("--disable-gpu");
     	options.addArguments("--remote-allow-origins=*"); // sometimes helps with CI
+    	
+    	try {
+    	    String tempProfileDir = Files.createTempDirectory("chrome-profile").toString();
+    	    options.addArguments("--user-data-dir=" + tempProfileDir);
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
     	
         // Initialize WebDriver
         driver = new ChromeDriver();
