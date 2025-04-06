@@ -13,7 +13,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +25,18 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B -e package --file pom.xml
+
+    - name: Verify Chrome and ChromeDriver Installation
+      run: |
+        echo "🧪 Chrome version:"
+        google-chrome --version || chromium-browser --version
+
+        echo "🧪 ChromeDriver version:"
+        chromedriver --version
+
+        echo "🧪 ChromeDriver path:"
+        which chromedriver || echo "Chromedriver not found"  
+      
     - name: Run Tests
       run: mvn test
 
