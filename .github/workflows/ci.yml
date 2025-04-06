@@ -23,8 +23,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B -e package --file pom.xml
 
     - name: Verify Chrome and ChromeDriver Installation
       run: |
@@ -35,7 +33,10 @@ jobs:
         chromedriver --version
 
         echo "🧪 ChromeDriver path:"
-        which chromedriver || echo "Chromedriver not found"  
+        which chromedriver || echo "Chromedriver not found" 
+    
+    - name: Build with Maven
+      run: mvn -B -e package --file pom.xml  
       
     - name: Run Tests
       run: mvn test
