@@ -58,6 +58,7 @@ public class App1HtmlTest {
         driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
         
         waitForPageToLoad();
+        takeScreenshot("add_task_failed.png");
     }
     
     @AfterClass
