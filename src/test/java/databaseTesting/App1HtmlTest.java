@@ -4,6 +4,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
@@ -56,7 +57,15 @@ public class App1HtmlTest {
         driver = new ChromeDriver(options);
 
         // Open the HTML file in the browser
-        driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
+        //driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
+        
+        //Load HTML file from classpath resources
+        URL resource = getClass().getClassLoader().getResource("App1.html");
+        if (resource == null) {
+            throw new RuntimeException("App1.html not found in resources!");
+        }
+        driver.get(resource.toString());
+
         
         waitForPageToLoad();
         System.out.println("URL: " + driver.getCurrentUrl());
@@ -127,6 +136,17 @@ public class App1HtmlTest {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    
+    private void takeScreenshot2(String filename) {
+        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            Files.createDirectories(new File("screenshots").toPath());
+            Files.copy(screenshot.toPath(), new File("screenshots/" + filename + ".png").toPath());
+            System.out.println("Screenshot saved: " + filename);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
