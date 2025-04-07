@@ -33,13 +33,20 @@ jobs:
         chromedriver --version
 
         echo "🧪 ChromeDriver path:"
-        which chromedriver || echo "Chromedriver not found" 
+        which chromedriver || echo "Chromedriver not found"    
     
     - name: Build with Maven
       run: mvn -B -e package --file pom.xml  
       
     - name: Run Tests
       run: mvn test
+
+    - name: Upload Screenshots
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: selenium-screenshots
+        path: target/screenshots/   
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v4
