@@ -62,6 +62,8 @@ public class DataIntegrityTest {
         }
         
         //queryMovies(connection);
+        
+        System.out.println("DataIntegrityTest starts now");
     } 
     
     @AfterClass

@@ -39,6 +39,7 @@ public class App1HtmlTest {
 
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--headless=new"); // new headless mode
+    	options.addArguments("--window-size=1920,1080"); // Makes sure elements are visible
     	options.addArguments("--no-sandbox");
     	options.addArguments("--disable-dev-shm-usage");
     	options.addArguments("--disable-gpu");
@@ -58,7 +59,11 @@ public class App1HtmlTest {
         driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
         
         waitForPageToLoad();
-        takeScreenshot("add_task_failed.png");
+        System.out.println("URL: " + driver.getCurrentUrl());
+        System.out.println("Title: " + driver.getTitle());
+        
+        takeScreenshot("App1 page.png");
+        System.out.println("App1HtmlTest starts now");
     }
     
     @AfterClass

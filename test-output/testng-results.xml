@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="2" total="9" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-06T22:37:25 CEST" name="Default suite" finished-at="2025-04-06T22:37:26 CEST" duration-ms="1134">
+  <suite started-at="2025-04-07T08:32:13 CEST" name="Default suite" finished-at="2025-04-07T08:32:13 CEST" duration-ms="262">
     <groups>
     </groups>
-    <test started-at="2025-04-06T22:37:25 CEST" name="Default test" finished-at="2025-04-06T22:37:26 CEST" duration-ms="1134">
-      <class name="databaseTesting.App1HtmlTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.App1HtmlTest@41a2befb]" started-at="2025-04-06T22:37:25 CEST" name="setUp" finished-at="2025-04-06T22:37:26 CEST" duration-ms="862" status="PASS">
+    <test started-at="2025-04-07T08:32:13 CEST" name="Default test" finished-at="2025-04-07T08:32:13 CEST" duration-ms="262">
+      <class name="databaseTesting.DataIntegrityTest">
+        <test-method is-config="true" signature="setUpDatabase()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUpDatabase" finished-at="2025-04-07T08:32:13 CEST" duration-ms="141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDatabase -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testAddTask()[pri:1, instance:databaseTesting.App1HtmlTest@41a2befb]" started-at="2025-04-06T22:37:26 CEST" name="testAddTask" finished-at="2025-04-06T22:37:26 CEST" duration-ms="98" status="PASS">
+        <test-method signature="testDataIntegrity()[pri:1, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testDataIntegrity" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddTask -->
-        <test-method signature="testDeleteTask()[pri:2, instance:databaseTesting.App1HtmlTest@41a2befb]" started-at="2025-04-06T22:37:26 CEST" name="testDeleteTask" finished-at="2025-04-06T22:37:26 CEST" depends-on-methods="databaseTesting.App1HtmlTest.testAddTask" duration-ms="48" status="PASS">
+        </test-method> <!-- testDataIntegrity -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDeleteTask -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:databaseTesting.App1HtmlTest@41a2befb]" started-at="2025-04-06T22:37:26 CEST" name="tearDown" finished-at="2025-04-06T22:37:26 CEST" duration-ms="99" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="testEmptyInsert()[pri:2, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testEmptyInsert" finished-at="2025-04-07T08:32:13 CEST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyInsert -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testEmptyInsert2()[pri:3, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testEmptyInsert2" finished-at="2025-04-07T08:32:13 CEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyInsert2 -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testUniqueConstraint()[pri:4, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testUniqueConstraint" finished-at="2025-04-07T08:32:13 CEST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUniqueConstraint -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFieldLength()[pri:5, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testFieldLength" finished-at="2025-04-07T08:32:13 CEST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFieldLength -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testDeleteCascadingBehavior()[pri:6, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testDeleteCascadingBehavior" finished-at="2025-04-07T08:32:13 CEST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteCascadingBehavior -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="setUp" finished-at="2025-04-07T08:32:13 CEST" duration-ms="7" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testDefaultValues()[pri:7, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="testDefaultValues" finished-at="2025-04-07T08:32:13 CEST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDefaultValues -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:databaseTesting.DataIntegrityTest@7bedc48a]" started-at="2025-04-07T08:32:13 CEST" name="tearDown" finished-at="2025-04-07T08:32:13 CEST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- databaseTesting.App1HtmlTest -->
+      </class> <!-- databaseTesting.DataIntegrityTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
