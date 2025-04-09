@@ -2,7 +2,7 @@
 <suite name="TestSuite">
   <test name="Test">
     <classes>
-      <class name="databaseTesting.DataIntegrityTest" />
+      <class name="databaseTesting.App1HtmlTest.java"/>
     </classes>
   </test>
 </suite>
