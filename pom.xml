@@ -5,8 +5,7 @@
   <groupId>com.testing</groupId>
   <artifactId>SeleniumTests</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
-
+  <packaging>war</packaging>
   <name>SeleniumTests</name>
   <url>http://maven.apache.org</url>
 
@@ -53,13 +52,10 @@
           <includes>
             <include>**/*Test.java</include>
             <include>**/*Tests.java</include>
-          </includes>
-          <properties>
-            <property>
-              <name>testng.xml</name>
-              <value>src/test/resources/testng.xml</value>
-            </property>
-          </properties>
+          	</includes>
+           	<suiteXmlFiles>
+          		<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+        	</suiteXmlFiles>
         </configuration>
       </plugin>
     </plugins>

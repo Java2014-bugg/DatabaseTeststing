@@ -59,7 +59,7 @@ public class App1HtmlTest {
         // Open the HTML file in the browser
         //driver.get("file:///C:/Users/janal/Workspace/eclipse-workspace/TMP/SeleniumTests/src/main/resources/App1.html");
         
-        //Load HTML file from classpath resources
+        //Load HTML file from classpath resources to also work in GitHub Actions
         URL resource = getClass().getClassLoader().getResource("App1.html");
         if (resource == null) {
             throw new RuntimeException("App1.html not found in resources!");
