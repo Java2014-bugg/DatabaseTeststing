@@ -1,6 +1,10 @@
 name: Deploy to Tomcat
 
 on:
+  workflow_run:
+    workflows: ["ci.yml"]
+    types:
+      - success
   push:
     branches:
       - main
