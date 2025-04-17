@@ -65,6 +65,10 @@ public class App1HtmlTest {
             throw new RuntimeException("App1.html not found in resources!");
         }
         driver.get(resource.toString());
+        
+        //  the test is hitting the deployed HTML page on Tomcat, not a local file. That’s how real-world deployment 
+        //testing works
+        //driver.get("https://4f5c-161-35-140-158.ngrok-free.app/App1.html"); // Later
 
         
         waitForPageToLoad();
