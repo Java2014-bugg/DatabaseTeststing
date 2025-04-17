@@ -16,6 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Logging Workflow Details
+      run: |
+        echo "📝 CI Workflow Debugging..."
+        echo "Branch: ${{ github.ref }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Event: ${{ github.event_name }}"
+        echo "Repository: ${{ github.repository }}"
+    
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v4
