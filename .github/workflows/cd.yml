@@ -1,6 +1,10 @@
 name: Deploy to Tomcat
 
 on:
+  workflow_run:
+    workflows: ["ci.yml"]
+    types:
+      - success
   push:
     branches:
       - main
@@ -27,5 +31,5 @@ jobs:
     # Step 4: Deploy to Tomcat
     - name: Deploy to Tomcat
       run: |
-        curl -T target/your-app.war "http://localhost:8080/manager/text/deploy?path=/App1&update=true" \
+        curl -T target/App1.war "http://localhost:8080/manager/text/deploy?path=/App1&update=true" \
         --user Java14:qcT34Ob
