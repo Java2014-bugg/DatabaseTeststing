@@ -49,7 +49,7 @@ jobs:
       run: mvn -B -e package --file pom.xml  
       
     - name: Run only App1HtmlTest
-      run: mvn -Dtest=Seleniumtests.App1HtmlTest test
+      mvn -Dtest=databaseTesting.App1HtmlTest test
 
     - name: Upload Screenshots
       uses: actions/upload-artifact@v4
