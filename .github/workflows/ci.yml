@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "master" ]
     paths:
-      - src/main/resources/App1.html
+      - src/main/resources/index.html
   pull_request:
     branches: [ "master" ]
     paths:
-      - src/main/resources/App1.html
+      - src/main/resources/index.html
   workflow_dispatch: # Enables manual triggering
 
 jobs:
