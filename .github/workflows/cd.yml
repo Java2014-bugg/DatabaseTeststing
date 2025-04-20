@@ -41,8 +41,9 @@ jobs:
     # Step 4: Create WAR file
     - name: Create WAR file manually
       run: |
-        mkdir -p target/tmpwar
+        mkdir -p target/tmpwar/WEB-INF
         cp src/main/resources/index.html target/tmpwar/
+        echo "<web-app/>" > target/tmpwar/WEB-INF/web.xml
         cd target/tmpwar
         jar -cvf ../index.war .
 
@@ -61,7 +62,6 @@ jobs:
       run: |
         curl "${{ secrets.NGROK_URL }}/manager/text/undeploy?path=/index" \
         --user Java14:qcT34Ob || echo "Nothing to undeploy"
-
 
     # Step 8: Deploy to Tomcat
     - name: Deploy to Tomcat
