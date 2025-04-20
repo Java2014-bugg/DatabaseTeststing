@@ -61,4 +61,4 @@ jobs:
 
     - name: Post-deploy check
       run: |
-        curl -f "${{ secrets.NGROK_URL }}/index/" || exit 1
+        curl -f "${{ secrets.NGROK_URL }}/index/index.html" || exit 1
