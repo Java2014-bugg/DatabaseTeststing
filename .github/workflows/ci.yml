@@ -1,6 +1,7 @@
 name: Java CI with Maven
 
 on:
+  workflow_dispatch: # Enables manual triggering
   push:
     branches: [ "master" ]
     paths:
@@ -9,8 +10,7 @@ on:
     branches: [ "master" ]
     paths:
       - src/main/resources/index.html
-  workflow_dispatch: # Enables manual triggering
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
