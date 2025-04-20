@@ -41,11 +41,10 @@ jobs:
     # Step 4: Create WAR file
     - name: Create WAR file manually
       run: |
-        mkdir -p target/index
-        cp -r src/main/resources/index.html target/index/
-        cd target
-        jar -cvf index.war index
-  
+        mkdir -p target/tmpwar
+        cp src/main/resources/index.html target/tmpwar/
+        cd target/tmpwar
+        jar -cvf ../index.war .
 
     # Step 5: Check if access to Tomcat server
     - name: Test connectivity to Tomcat
