@@ -72,6 +72,11 @@ jobs:
     - name: Wait for deployment
       run: sleep 25
 
+    - name: List deployed WARs
+      run: |
+        curl -u Java14:qcT34Ob "${{ secrets.NGROK_URL }}/manager/text/list"
+  
+
     - name: Post-deploy check
       run: |
         curl -f "${{ secrets.NGROK_URL }}/index/index.html" || (echo "index.html not found" && exit 1)
