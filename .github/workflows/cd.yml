@@ -46,11 +46,24 @@ jobs:
         cd target/tmpwar
         jar -cvf ../index.war .
 
-    # Step 5: Check if access to Tomcat server
+    # Step 5: List WAR contents
+    - name: List WAR contents
+      run: |
+        jar tf target/index.war
+
+
+    # Step 6: Check if access to Tomcat server
     - name: Test connectivity to Tomcat
       run: curl "${{ secrets.NGROK_URL }}"
 
-    # Step 6: Deploy to Tomcat
+    # Step 7: Undeploy old app
+    - name: Undeploy old app (optional)
+      run: |
+        curl "${{ secrets.NGROK_URL }}/manager/text/undeploy?path=/index" \
+        --user Java14:qcT34Ob || echo "Nothing to undeploy"
+
+
+    # Step 8: Deploy to Tomcat
     - name: Deploy to Tomcat
       run: |
         curl -T target/index.war "${{ secrets.NGROK_URL }}/manager/text/deploy?path=/index&update=true" \
@@ -61,4 +74,4 @@ jobs:
 
     - name: Post-deploy check
       run: |
-        curl -f "${{ secrets.NGROK_URL }}/index/index.html" || exit 1
+        curl -f "${{ secrets.NGROK_URL }}/index/index.html" || (echo "index.html not found" && exit 1)
