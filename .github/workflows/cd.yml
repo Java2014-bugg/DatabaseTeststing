@@ -4,11 +4,12 @@ on:
   workflow_run:
     workflows: ["Java CI with Maven"]  # must match the CI workflow `name`
     types:
-      - success
+      - completed
   workflow_dispatch:  # still allows manual triggering
 
 jobs:
   build-and-deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
