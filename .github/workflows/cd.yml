@@ -38,9 +38,14 @@ jobs:
           echo "Secret NGROK_URL is set."
           curl -I "${{ secrets.NGROK_URL }}" || echo "Failed to connect to the secret URL."
         fi
-    # Step 4: Rename WAR file
-    - name: Rename WAR file
-      run: mv target/index-1.0-SNAPSHOT.war target/index.war  
+    # Step 4: Create WAR file
+    - name: Create WAR file manually
+      run: |
+        mkdir -p target/index
+        cp -r src/main/resources/index.html target/index/
+        cd target
+        jar -cvf index.war index
+  
 
     # Step 5: Check if access to Tomcat server
     - name: Test connectivity to Tomcat
