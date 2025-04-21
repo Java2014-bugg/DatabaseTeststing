@@ -55,6 +55,16 @@
 
   <!-- ✅ Add Maven Surefire Plugin for TestNG -->
   <build>
+  	<resources>
+    	<resource>
+      		<directory>src/main/resources</directory>
+      		<includes>
+        		<include>**/*.html</include>
+        		<include>**/*</include>
+      		</includes>
+    	</resource>
+  	</resources>
+  
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -64,10 +74,10 @@
           <includes>
             <include>**/*Test.java</include>
             <include>**/*Tests.java</include>
-          	</includes>
-           	<suiteXmlFiles>
-          		<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-        	</suiteXmlFiles>
+          </includes>
+          <suiteXmlFiles>
+          	<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
         </configuration>
       </plugin>
     </plugins>
